@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Colors</string>
+
+    <string name="color.red">#F44336</string>
+    <string name="color.pink">#E91E63</string>
+    <string name="color.purple">#9C27B0</string>
+    <string name="color.deep.purple">#673AB7</string>
+    <string name="color.indigo">#3F51B5</string>
+    <string name="color.blue">#2196F3</string>
+    <string name="color.light.blue">#03A9F4</string>
+    <string name="color.cyan">#00BCD4</string>
+    <string name="color.teal">#009688</string>
+    <string name="color.green">#4CAF50</string>
+    <string name="color.light.green">#8BC34A</string>
+    <string name="color.lime">#CDDC39</string>
+    <string name="color.yellow">#FFEB3B</string>
+    <string name="color.amber">#FFC107</string>
+    <string name="color.orange">#FF9800</string>
+    <string name="color.deep.orange">#FF5722</string>
+    <string name="color.brown">#795548</string>
+    <string name="color.grey">#9E9E9E</string>
+    <string name="color.blue.gray">#607D8B</string>
+    <string name="color.black">#000000</string>
+
+    <string-array name="color_pallete">
+        <item>@string/color.red</item>
+        <item>@string/color.pink</item>
+        <item>@string/color.purple</item>
+        <item>@string/color.deep.purple</item>
+        <item>@string/color.indigo</item>
+        <item>@string/color.blue</item>
+        <item>@string/color.light.blue</item>
+        <item>@string/color.cyan</item>
+        <item>@string/color.teal</item>
+        <item>@string/color.green</item>
+        <item>@string/color.light.green</item>
+        <item>@string/color.lime</item>
+        <item>@string/color.yellow</item>
+        <item>@string/color.amber</item>
+        <item>@string/color.orange</item>
+        <item>@string/color.deep.orange</item>
+        <item>@string/color.brown</item>
+        <item>@string/color.grey</item>
+        <item>@string/color.blue.gray</item>
+        <item>@string/color.black</item>
+    </string-array>
+
+</resources>

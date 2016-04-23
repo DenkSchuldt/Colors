@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item.color.variation"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/color.variation.item.height"
+    android:background="@drawable/rounded_rectangle"
+    android:layout_marginTop="@dimen/margin.vertical.small"
+    android:layout_marginLeft="@dimen/margin.horizontal.small"
+    android:layout_marginRight="@dimen/margin.horizontal.small">
+
+    <TextView
+        android:id="@+id/item.color.variation.hex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="#FFF000"
+        android:layout_above="@+id/item.color.variation.rgb"/>
+    <TextView
+        android:id="@+id/item.color.variation.rgb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="rgb(50,50,50)"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>
