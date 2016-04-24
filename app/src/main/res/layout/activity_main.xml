@@ -8,7 +8,10 @@
     <HorizontalScrollView
         android:id="@+id/main.color.pallete.container"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/elevation"
+        android:background="@color/color.white"
+        android:scrollbarSize="2dp">
         <LinearLayout
             android:id="@+id/main.color.pallete"
             android:layout_width="match_parent"
@@ -16,21 +19,38 @@
             android:orientation="horizontal">
         </LinearLayout>
     </HorizontalScrollView>
-    <View
-        android:id="@+id/main.separator"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@+id/main.color.pallete.container"
-        android:background="@color/color.grey"/>
     <ScrollView
-        android:layout_below="@+id/main.separator"
+        android:layout_below="@+id/main.color.pallete.container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/color.white">
         <LinearLayout
             android:id="@+id/main.color.variations"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/padding.vertical.small">
         </LinearLayout>
     </ScrollView>
+    <LinearLayout
+        android:id="@+id/main.color.variations.empty"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="@dimen/padding.vertical.large">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_color_lens_white_48dp"
+            android:tint="@color/color.blue.gray"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/color.variations.empty"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/margin.vertical.medium"
+            android:textColor="@color/color.blue.gray"
+            android:textSize="@dimen/text.size.small"/>
+    </LinearLayout>
 </RelativeLayout>

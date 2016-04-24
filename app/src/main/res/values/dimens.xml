@@ -23,4 +23,22 @@
     <dimen name="margin.vertical.medium">25dp</dimen>
     <dimen name="margin.vertical.large">35dp</dimen>
 
+    <dimen name="elevation">8dp</dimen>
+    <dimen name="text.size.small">15sp</dimen>
+    <dimen name="text.size.medium">20sp</dimen>
+    <dimen name="text.size.large">25sp</dimen>
+
+    <dimen name="icon.width">60dp</dimen>
+    <dimen name="icon.height">60dp</dimen>
+
+    <dimen name="padding">16dp</dimen>
+
+    <dimen name="list.item.singleline.height">48dp</dimen>
+    <dimen name="list.item.twolines.height">72dp</dimen>
+    <dimen name="list.item.primary.text">16sp</dimen>
+    <dimen name="list.item.secondary.text">14sp</dimen>
+
+    <dimen name="subheader.text.size">14sp</dimen>
+    <dimen name="subheader.height">48dp</dimen>
+
 </resources>

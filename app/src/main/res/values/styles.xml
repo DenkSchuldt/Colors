@@ -8,4 +8,67 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="VerticalList">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="Subheader_Dark" parent="android:Widget.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/subheader.height</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/subheader.text.size</item>
+        <item name="android:gravity">center|left</item>
+        <item name="android:paddingLeft">@dimen/padding</item>
+        <item name="android:paddingRight">@dimen/padding</item>
+    </style>
+
+    <style name="Subheader_Light" parent="android:Widget.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/subheader.height</item>
+        <item name="android:textColor">@color/color.white</item>
+        <item name="android:textSize">@dimen/subheader.text.size</item>
+        <item name="android:gravity">center|left</item>
+        <item name="android:paddingLeft">@dimen/padding</item>
+        <item name="android:paddingRight">@dimen/padding</item>
+    </style>
+
+    <style name="SingleLineListItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">@dimen/padding</item>
+        <item name="android:paddingRight">@dimen/padding</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">?android:selectableItemBackground</item>
+    </style>
+
+    <style name="TwoLineListItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/padding</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">?android:selectableItemBackground</item>
+    </style>
+
+    <style name="TwoLineListItem_PrimaryText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/list.item.primary.text</item>
+        <item name="android:textColor">@color/color.black</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TwoLineListItem_SecondaryText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/list.item.secondary.text</item>
+        <item name="android:textColor">@color/color.black</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:alpha">0.6</item>
+    </style>
+
+
 </resources>

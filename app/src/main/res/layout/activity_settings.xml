@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/settings.layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_below="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                style="@style/Subheader_Dark"
+                android:text="@string/settings.section.about"/>
+            <LinearLayout
+                android:id="@+id/settings.version"
+                style="@style/TwoLineListItem">
+                <TextView
+                    style="@style/TwoLineListItem_PrimaryText"
+                    android:text="@string/app_name"/>
+                <TextView
+                    android:id="@+id/settings.version.label"
+                    style="@style/TwoLineListItem_SecondaryText"
+                    android:text="v1.0"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/settings.send.comments"
+                style="@style/TwoLineListItem">
+                <TextView
+                    style="@style/TwoLineListItem_PrimaryText"
+                    android:text="@string/settings.comments.title"/>
+                <TextView
+                    android:id="@+id/settings."
+                    style="@style/TwoLineListItem_SecondaryText"
+                    android:text="@string/settings.comments.label"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -45,4 +45,13 @@
         <item>@string/color.black</item>
     </string-array>
 
+    <string name="color.variations.empty">It\'s cold over here. Select a color to heat this place.</string>
+
+    <string name="menu.settings">Settings</string>
+
+    <string name="settings.section.about">About Colors</string>
+    <string name="settings.version">More updates coming soon!</string>
+    <string name="settings.comments.title">Send comments</string>
+    <string name="settings.comments.label">Send an email to the developer</string>
+
 </resources>

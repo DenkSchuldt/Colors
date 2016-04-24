@@ -59,4 +59,16 @@ public class Utils {
     return "rgb(" + red + ", " + green + ", " + blue + ")";
   }
 
+  /**
+   *
+   * @param color
+   * @return
+   */
+  public static boolean colorIsDark(int color) {
+    int red = Color.red(color);
+    int green = Color.green(color);
+    int blue = Color.blue(color);
+    return red<=125 && green<=125 && blue<=125;
+  }
+
 }
