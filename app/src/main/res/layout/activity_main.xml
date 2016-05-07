@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.dennyschuldt.colors.MainActivity">
+    tools:context=".views.MainActivity">
     <HorizontalScrollView
         android:id="@+id/main.color.pallete.container"
         android:layout_width="wrap_content"
@@ -42,7 +42,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_color_lens_white_48dp"
+            android:src="@drawable/ic_color_lens_white"
             android:tint="@color/color.blue.gray"/>
         <TextView
             android:layout_width="match_parent"

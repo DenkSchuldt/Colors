@@ -1,4 +1,4 @@
-package com.dennyschuldt.colors;
+package com.dennyschuldt.colors.views;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -14,6 +14,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.dennyschuldt.colors.R;
+import com.dennyschuldt.colors.fragments.PalettesDialogFragment;
+import com.dennyschuldt.colors.utils.Utils;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -68,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
           int color = Color.parseColor((String) v.getTag());
           getSupportActionBar().setBackgroundDrawable(new ColorDrawable(color));
           if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setStatusBarColor(Utils.darker(color, (float)0.8));
+            getWindow().setStatusBarColor(Utils.darker(color, (float) 0.8));
           }
           populateColorVariations(color);
         }
@@ -128,6 +133,15 @@ public class MainActivity extends AppCompatActivity {
     TextView rgbField = (TextView) view.findViewById(R.id.item_color_variation_rgb);
     rgbField.setText(rgb);
     rgbField.setTextColor(textColor);
+
+    view.setOnLongClickListener(new View.OnLongClickListener() {
+      @Override
+      public boolean onLongClick(View v) {
+        PalettesDialogFragment dialogFragment = PalettesDialogFragment.newInstance();
+        dialogFragment.show(getSupportFragmentManager(), PalettesDialogFragment.TAG);
+        return false;
+      }
+    });
 
     return view;
   }

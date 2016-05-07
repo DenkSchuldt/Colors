@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:background="@color/color.grey.light">
+
+    <ImageView
+        android:id="@+id/item.pallete.icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_color_lens_white"/>
+
+    <TextView
+        android:layout_toRightOf="@+id/item.pallete.icon"
+        android:id="@+id/item.pallete.name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:paddingLeft="10dp"
+        android:text="Name"/>
+
+</RelativeLayout>

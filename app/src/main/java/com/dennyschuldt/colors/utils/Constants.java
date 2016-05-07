@@ -1,4 +1,4 @@
-package com.dennyschuldt.colors;
+package com.dennyschuldt.colors.utils;
 
 /**
  * Created by denny on 4/23/16.

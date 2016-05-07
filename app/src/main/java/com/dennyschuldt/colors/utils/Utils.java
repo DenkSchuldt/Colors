@@ -1,4 +1,4 @@
-package com.dennyschuldt.colors;
+package com.dennyschuldt.colors.utils;
 
 import android.graphics.Color;
 
