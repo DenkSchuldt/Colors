@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -55,9 +56,15 @@ public class PalettesListFragment extends Fragment {
    */
   public void updateContent() {
     ArrayList<String> palettes = new ArrayList<>();
-    palettes.add("Añadir nueva Paleta");
+    palettes.add(getString(R.string.new_palette));
     PalettesListAdapter adapter = new PalettesListAdapter(getContext(), palettes);
     palettesList.setAdapter(adapter);
+    palettesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+      @Override
+      public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        palletesDialogFragment.newPaletteFragment();
+      }
+    });
   }
 
 }

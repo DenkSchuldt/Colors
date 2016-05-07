@@ -4,31 +4,44 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/rounded_corners">
+    android:background="@color/color.white">
 
     <RelativeLayout
         android:id="@+id/palettes.fragment.header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/color.grey"
-        android:paddingTop="40dp"
-        android:paddingBottom="40dp">
+        android:background="@color/color.grey">
         <ImageView
-            android:id="@+id/palettes.fragment.header.icon.left"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_chevron_left_white"/>
+            android:id="@+id/palettes.fragment.header.icon.back"
+            android:layout_width="@dimen/icon.width.medium"
+            android:layout_height="@dimen/icon.height.medium"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin.horizontal.small"
+            android:src="@drawable/ic_chevron_left_white"
+            android:background="?attr/selectableItemBackgroundBorderless"/>
         <ImageView
-            android:id="@+id/palettes.fragment.header.icon.center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_width="@dimen/icon.width.large"
+            android:layout_height="@dimen/icon.height.large"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin.vertical.large"
+            android:layout_marginBottom="@dimen/margin.vertical.large"
             android:src="@drawable/ic_color_lens_white"/>
+        <ImageView
+            android:id="@+id/palettes.fragment.header.icon.close"
+            android:layout_width="@dimen/icon.width.small"
+            android:layout_height="@dimen/icon.height.small"
+            android:src="@drawable/ic_close_white"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/margin.vertical.small"
+            android:layout_marginRight="@dimen/margin.horizontal.small"
+            android:background="?attr/selectableItemBackgroundBorderless"/>
     </RelativeLayout>
     <FrameLayout
         android:id="@+id/palettes.fragment.body"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true">
     </FrameLayout>
 
 </LinearLayout>

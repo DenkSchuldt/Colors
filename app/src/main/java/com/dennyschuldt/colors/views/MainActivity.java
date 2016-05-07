@@ -14,7 +14,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.dennyschuldt.colors.R;
 import com.dennyschuldt.colors.fragments.PalettesDialogFragment;
@@ -65,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
   public void populateColorPallete() {
     String[] colorPallete = getResources().getStringArray(R.array.color_pallete);
     for (int i=0; i<colorPallete.length; i++) {
-      View item = getLayoutInflater().inflate(R.layout.item_color_pallete, mainColorPallete, false);
+      View item = getLayoutInflater().inflate(R.layout.item_color_palette, mainColorPallete, false);
       item.setTag(colorPallete[i]);
       item.setOnClickListener(new View.OnClickListener() {
         @Override
@@ -112,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
    * @param color
    * @return
    */
-  public View inflateColorVariation(int color) {
+  public View inflateColorVariation(final int color) {
     View view = getLayoutInflater().inflate(
         R.layout.item_color_variation,
         mainColorVariations, false);
@@ -137,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
     view.setOnLongClickListener(new View.OnLongClickListener() {
       @Override
       public boolean onLongClick(View v) {
-        PalettesDialogFragment dialogFragment = PalettesDialogFragment.newInstance();
+        PalettesDialogFragment dialogFragment = PalettesDialogFragment.newInstance(color);
         dialogFragment.show(getSupportFragmentManager(), PalettesDialogFragment.TAG);
         return false;
       }

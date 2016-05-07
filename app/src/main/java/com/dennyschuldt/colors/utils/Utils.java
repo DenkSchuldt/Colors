@@ -64,6 +64,18 @@ public class Utils {
    * @param color
    * @return
    */
+  public static boolean colorIsLight(int color) {
+    int red = Color.red(color);
+    int green = Color.green(color);
+    int blue = Color.blue(color);
+    return red>=175 && green>=175 && blue>=175;
+  }
+
+  /**
+   *
+   * @param color
+   * @return
+   */
   public static boolean colorIsDark(int color) {
     int red = Color.red(color);
     int green = Color.green(color);
