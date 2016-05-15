@@ -54,8 +54,10 @@
     <string name="settings.comments.label">Send an email to the developer</string>
 
     <string name="new.palette">Nueva Paleta de Colores</string>
-    <string name="title">Título</string>
+    <string name="name">Nombre</string>
     <string name="accept">Aceptar</string>
     <string name="save">Guardar</string>
+
+    <string name="error.invalid.name">Nombre no válido</string>
 
 </resources>

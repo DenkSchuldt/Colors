@@ -23,8 +23,8 @@
             android:layout_width="@dimen/icon.width.large"
             android:layout_height="@dimen/icon.height.large"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/margin.vertical.large"
-            android:layout_marginBottom="@dimen/margin.vertical.large"
+            android:layout_marginTop="@dimen/margin.vertical.medium"
+            android:layout_marginBottom="@dimen/margin.vertical.medium"
             android:src="@drawable/ic_color_lens_white"/>
         <ImageView
             android:id="@+id/palettes.fragment.header.icon.close"

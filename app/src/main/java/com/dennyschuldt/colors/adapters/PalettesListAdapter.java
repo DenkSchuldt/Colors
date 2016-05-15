@@ -11,30 +11,35 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dennyschuldt.colors.R;
+import com.dennyschuldt.colors.models.Palette;
 
 import java.util.ArrayList;
 
 /**
  * Created by denny on 5/6/16.
  */
-public class PalettesListAdapter extends ArrayAdapter<String>{
+public class PalettesListAdapter extends ArrayAdapter<Palette> {
 
-  public PalettesListAdapter(Context context, ArrayList<String> palettes) {
+  public PalettesListAdapter(Context context, ArrayList<Palette> palettes) {
     super(context, 0, palettes);
   }
 
   @Override
   public View getView(int position, View convertView, ViewGroup parent) {
-    String palette = getItem(position);
+    Palette palette = getItem(position);
     if (convertView == null) {
       convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_palette_option, parent, false);
     }
     TextView name = (TextView) convertView.findViewById(R.id.item_pallete_name);
-    name.setText(palette);
-    if (position==0) {
+    name.setText(palette.getName());
+    if (palette.get_id()==0) {
       ImageView iv = (ImageView) convertView.findViewById(R.id.item_pallete_icon);
       iv.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ic_color_lens_add_white));
+    } else {
+      ImageView iv = (ImageView) convertView.findViewById(R.id.item_pallete_icon);
+      iv.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ic_color_lens_palette_white));
     }
+    convertView.setTag(palette);
     return convertView;
   }
 

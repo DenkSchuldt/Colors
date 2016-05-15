@@ -9,9 +9,11 @@
     <dimen name="color.variation.item.height">60dp</dimen>
     <dimen name="color.variation.item.radius">5dp</dimen>
 
+    <dimen name="padding.horizontal.tiny">5dp</dimen>
     <dimen name="padding.horizontal.small">10dp</dimen>
     <dimen name="padding.horizontal.medium">20dp</dimen>
     <dimen name="padding.horizontal.large">30dp</dimen>
+    <dimen name="padding.vertical.tiny">8dp</dimen>
     <dimen name="padding.vertical.small">15dp</dimen>
     <dimen name="padding.vertical.medium">25dp</dimen>
     <dimen name="padding.vertical.large">35dp</dimen>

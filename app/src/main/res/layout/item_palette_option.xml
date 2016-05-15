@@ -4,8 +4,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="@dimen/padding.vertical.small"
-    android:paddingBottom="@dimen/padding.vertical.small"
+    android:paddingTop="@dimen/padding.vertical.tiny"
+    android:paddingBottom="@dimen/padding.vertical.tiny"
     android:paddingLeft="@dimen/padding.horizontal.small"
     android:paddingRight="@dimen/padding.horizontal.small"
     android:background="?attr/selectableItemBackground">
