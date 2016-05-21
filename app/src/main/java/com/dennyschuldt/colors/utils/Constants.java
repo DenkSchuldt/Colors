@@ -7,6 +7,5 @@ public class Constants {
 
   // SETTINGS
   public static final String CONTACT_EMAIL = "dschuldtv@gmail.com";
-  public static final String COLOR = "color";
-
+  public static final String SELECTED_COLOR = "selectedColor";
 }

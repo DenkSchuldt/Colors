@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "954960448270",
+    "firebase_url": "https://colors-91a8e.firebaseio.com",
+    "project_id": "colors-91a8e",
+    "storage_bucket": "colors-91a8e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:954960448270:android:679ef7172ba6450b",
+        "android_client_info": {
+          "package_name": "com.dennyschuldt.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "954960448270-sqs32lr8o8at1onuntcf0g2jhrbe5rc3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA26vX-XdnS5h1igLpWY65wYBi3Q9xmHR8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

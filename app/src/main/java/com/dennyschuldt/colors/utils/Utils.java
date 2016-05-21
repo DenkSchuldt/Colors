@@ -1,6 +1,11 @@
 package com.dennyschuldt.colors.utils;
 
+import android.app.WallpaperManager;
+import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+
+import java.io.IOException;
 
 /**
  * Created by denny on 4/21/16.
@@ -81,6 +86,24 @@ public class Utils {
     int green = Color.green(color);
     int blue = Color.blue(color);
     return red<=125 && green<=125 && blue<=125;
+  }
+
+  /**
+   *
+   * @param color
+   * @param context
+   */
+  public static boolean setWallpaper(final int color, Context context) {
+    Bitmap image = Bitmap.createBitmap(100, 100, Bitmap.Config.ARGB_8888);
+    image.eraseColor(color);
+    WallpaperManager wallpaperManager = WallpaperManager.getInstance(context);
+    try {
+      wallpaperManager.setBitmap(image);
+      return true;
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    return false;
   }
 
 }
