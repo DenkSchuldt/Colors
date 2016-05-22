@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "939145771202",
+    "firebase_url": "https://colors-43c7d.firebaseio.com",
+    "project_id": "colors-43c7d",
+    "storage_bucket": "colors-43c7d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:939145771202:android:55d528e3cdb081f8",
+        "android_client_info": {
+          "package_name": "com.dennyschuldt.colors"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "939145771202-ia15ibd7h2bnlgni6888t37gt2v9dmu6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMxZlVNQfhOzpVZgn73FHzaUDCFNXumRU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
