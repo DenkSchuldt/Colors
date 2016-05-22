@@ -2,6 +2,7 @@
 <RelativeLayout
     android:id="@+id/main.layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -54,4 +55,45 @@
             android:textColor="@color/color.blue.gray"
             android:textSize="@dimen/text.size.small"/>
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/main.fab.wallpaper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/main.fab"
+            android:layout_alignParentRight="true">
+            <TextView
+                android:text="@string/menu.set.as.wallpaper"
+                style="@style/FabOptionLabel"
+                android:elevation="@dimen/elevation.small"
+                android:layout_marginTop="@dimen/margin.vertical.tiny"
+                android:layout_toLeftOf="@+id/main.fab.wallpaper.icon"/>
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/main.fab.wallpaper.icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin.horizontal.medium"
+                android:layout_alignParentRight="true"
+                android:tint="@color/color.white"
+                app:fabSize="mini"
+                app:elevation="@dimen/elevation"
+                android:src="@drawable/ic_wallpaper_white"
+                android:layout_marginBottom="@dimen/margin.vertical.small"/>
+        </RelativeLayout>
+        <android.support.design.widget.FloatingActionButton
+            android:visibility="gone"
+            android:id="@+id/main.fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/ic_add_white"
+            android:layout_marginRight="@dimen/margin.horizontal.small"
+            android:layout_marginBottom="@dimen/margin.vertical.small"/>
+    </RelativeLayout>
+
 </RelativeLayout>

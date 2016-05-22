@@ -19,8 +19,9 @@
     <dimen name="padding.vertical.large">35dp</dimen>
 
     <dimen name="margin.horizontal.small">10dp</dimen>
-    <dimen name="margin.horizontal.medium">20dp</dimen>
+    <dimen name="margin.horizontal.medium">18dp</dimen>
     <dimen name="margin.horizontal.large">30dp</dimen>
+    <dimen name="margin.vertical.tiny">5dp</dimen>
     <dimen name="margin.vertical.small">15dp</dimen>
     <dimen name="margin.vertical.medium">25dp</dimen>
     <dimen name="margin.vertical.large">35dp</dimen>
@@ -31,6 +32,8 @@
     <dimen name="text.size.medium">20sp</dimen>
     <dimen name="text.size.large">25sp</dimen>
 
+    <dimen name="icon.width.tiny">15dp</dimen>
+    <dimen name="icon.height.tiny">15dp</dimen>
     <dimen name="icon.width.small">25dp</dimen>
     <dimen name="icon.height.small">25dp</dimen>
     <dimen name="icon.width.medium">40dp</dimen>
@@ -39,6 +42,7 @@
     <dimen name="icon.height.large">60dp</dimen>
 
     <dimen name="padding">16dp</dimen>
+    <dimen name="padding.small">5dp</dimen>
 
     <dimen name="list.item.singleline.height">48dp</dimen>
     <dimen name="list.item.twolines.height">72dp</dimen>

@@ -49,7 +49,7 @@ public class Utils {
    * @return
    */
   public static String getHex(int color) {
-    return String.format("#%06X", (0xFFFFFF & color));
+    return String.format("%06X", (0xFFFFFF & color));
   }
 
   /**

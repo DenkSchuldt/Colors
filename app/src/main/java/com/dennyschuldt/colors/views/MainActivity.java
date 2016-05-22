@@ -1,12 +1,15 @@
 package com.dennyschuldt.colors.views;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -17,16 +20,28 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.dennyschuldt.colors.R;
 import com.dennyschuldt.colors.utils.Constants;
 import com.dennyschuldt.colors.utils.Utils;
 
+import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
 
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+  private ArrayList colors;
+  private Animation fadeIn;
+  private Animation fadeOut;
+  private FloatingActionButton mainFab;
+  private FloatingActionButton mainFabWallpaperIcon;
+  private RelativeLayout mainFabWallpaper;
   private LinearLayout mainColorPallete;
   private LinearLayout mainColorVariations;
   private LinearLayout mainColorVariationsEmpty;
@@ -36,9 +51,16 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
+    colors = new ArrayList();
+    mainFab = (FloatingActionButton) findViewById(R.id.main_fab);
+    mainFabWallpaper = (RelativeLayout) findViewById(R.id.main_fab_wallpaper);
+    mainFabWallpaperIcon = (FloatingActionButton) findViewById(R.id.main_fab_wallpaper_icon);
     mainColorPallete = (LinearLayout) findViewById(R.id.main_color_pallete);
     mainColorVariations = (LinearLayout) findViewById(R.id.main_color_variations);
     mainColorVariationsEmpty = (LinearLayout) findViewById(R.id.main_color_variations_empty);
+
+    fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in);
+    fadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out);
 
     populateColorPalette();
     getSupportActionBar().setElevation(0);
@@ -49,6 +71,9 @@ public class MainActivity extends AppCompatActivity {
     if (color != 0) {
       selectMainColor(color);
     }
+
+    mainFab.setOnClickListener(this);
+    mainFabWallpaper.setOnClickListener(this);
 
   }
 
@@ -68,6 +93,28 @@ public class MainActivity extends AppCompatActivity {
         return true;
       default:
         return super.onOptionsItemSelected(item);
+    }
+  }
+
+  @Override
+  public void onClick(View v) {
+    switch (v.getId()) {
+      case R.id.main_fab:
+        if (mainFab.isSelected()) {
+          hideOptions();
+        } else {
+          revealOptions();
+        }
+        mainFab.setSelected(!mainFab.isSelected());
+        break;
+      case R.id.main_fab_wallpaper:
+        hideOptions();
+        mainFab.setSelected(!mainFab.isSelected());
+        if (Utils.setWallpaper(Integer.valueOf((String)colors.get(0)), MainActivity.this)) {
+          Snackbar.make(findViewById(R.id.main_layout),
+              "Color #" + Utils.getHex(Integer.valueOf((String) colors.get(0))) + " set as Wallpaper", Snackbar.LENGTH_LONG).show();
+        }
+        break;
     }
   }
 
@@ -101,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
     mainColorVariations.removeAllViewsInLayout();
     double factor = 0.9;
     while (factor > 0.0) {
-      int lighten = Utils.lighter(color, (float)factor);
+      int lighten = Utils.lighter(color, (float) factor);
       View view = inflateColorVariation(lighten);
       mainColorVariations.addView(view);
       factor -= 0.10;
@@ -113,6 +160,7 @@ public class MainActivity extends AppCompatActivity {
       mainColorVariations.addView(view);
       factor -= 0.10;
     }
+    addVariationSpace();
   }
 
   /**
@@ -125,6 +173,7 @@ public class MainActivity extends AppCompatActivity {
       getWindow().setStatusBarColor(Utils.darker(color, (float) 0.8));
     }
     populateColorVariations(color);
+    mainFab.setBackgroundTintList(ColorStateList.valueOf(color));
     SharedPreferences preferences = getApplicationContext().getSharedPreferences(
         getApplicationContext().getPackageName(), Context.MODE_PRIVATE);
     SharedPreferences.Editor editor = preferences.edit();
@@ -151,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
 
     String hex = Utils.getHex(color);
     TextView hexField = (TextView) view.findViewById(R.id.item_color_variation_hex);
-    hexField.setText(hex);
+    hexField.setText("#"+hex);
     hexField.setTextColor(textColor);
 
     String rgb = Utils.getRgb(color);
@@ -159,12 +208,29 @@ public class MainActivity extends AppCompatActivity {
     rgbField.setText(rgb);
     rgbField.setTextColor(textColor);
 
+    ImageView check = (ImageView) view.findViewById(R.id.item_color_variation_check);
+    check.setColorFilter(textColor);
+    if (colors.contains(hex)) {
+      view.setSelected(true);
+      check.setAlpha(1f);
+    }
     view.setTag(color);
 
     view.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        showPopup(v);
+        int color = (int) v.getTag();
+        boolean isSelected = v.isSelected();
+        ImageView check = (ImageView) v.findViewById(R.id.item_color_variation_check);
+        if (isSelected) {
+          check.setAlpha(0.15f);
+          colors.remove(String.valueOf(color));
+        } else {
+          check.setAlpha(1f);
+          colors.add(String.valueOf(color));
+        }
+        checkFab();
+        v.setSelected(!isSelected);
       }
     });
 
@@ -181,30 +247,45 @@ public class MainActivity extends AppCompatActivity {
     return view;
   }
 
-  /**
-   *
-   * @param v
-   */
-  public void showPopup(final View v) {
-    PopupMenu popup = new PopupMenu(this, v, Gravity.RIGHT);
-    popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-      @Override
-      public boolean onMenuItemClick(MenuItem item) {
-        switch (item.getItemId()) {
-          case R.id.menu_set_as_wallpaper:
-            int color = (int) v.getTag();
-            if (Utils.setWallpaper(color, MainActivity.this)) {
-              Snackbar.make(findViewById(R.id.main_layout),
-                  "Color " + Utils.getHex(color) + " set as Wallpaper", Snackbar.LENGTH_LONG).show();
-            }
-            break;
-        }
-        return false;
-      }
-    });
-    MenuInflater inflater = popup.getMenuInflater();
-    inflater.inflate(R.menu.menu_color_variation, popup.getMenu());
-    popup.show();
+  public void addVariationSpace() {
+    View space = getLayoutInflater().inflate(
+        R.layout.item_color_variation_space,
+        mainColorVariations, false);
+    mainColorVariations.addView(space);
   }
 
+  /**
+   *
+   */
+  private void revealOptions() {
+    mainFabWallpaper.startAnimation(fadeIn);
+    mainFabWallpaper.setVisibility(View.VISIBLE);
+    ObjectAnimator rotate = ObjectAnimator.ofFloat(mainFab, "rotation", 0.0f, -45f);
+    rotate.setDuration(150);
+    rotate.start();
+    int wallpaper = Integer.valueOf((String) colors.get(0));
+    mainFabWallpaperIcon.setBackgroundTintList(ColorStateList.valueOf(wallpaper));
+  }
+
+  /**
+   *
+   */
+  private void hideOptions() {
+    mainFabWallpaper.startAnimation(fadeOut);
+    mainFabWallpaper.setVisibility(View.GONE);
+    ObjectAnimator rotate = ObjectAnimator.ofFloat(mainFab, "rotation", -45.0f, -0.0f);
+    rotate.setDuration(150);
+    rotate.start();
+  }
+
+  /**
+   *
+   */
+  public void checkFab() {
+    if (colors.isEmpty()) {
+      mainFab.hide();
+    } else {
+      mainFab.show();
+    }
+  }
 }
